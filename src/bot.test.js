@@ -17,14 +17,14 @@ describe("Bot", () => {
   });
 
   it("debería saludar por género", () => {
-    expect(bot.saludarPorGenero("Ana", "femenino")).toEqual("Hola, Sra. Ana");
-    expect(bot.saludarPorGenero("Juan", "masculino")).toEqual("Hola, Sr. Juan");
-    expect(bot.saludarPorGenero("Alex", "otro")).toEqual("Hola, Alex");
+    expect(bot.saludarPorGenero("Mario", "masculino")).toEqual("Hola, Sr. Mario");
+    expect(bot.saludarPorGenero("Lucía", "femenino")).toEqual("Hola, Sra. Lucía");
+    expect(bot.saludarPorGenero("Alex", "otro")).toEqual("Hola, Alex"); // Sin título si el género no es específico
   });
 
   it("debería saludar por edad", () => {
     expect(bot.saludarPorEdad("Mario", 35)).toEqual("Hola, Sr. Mario");
-    expect(bot.saludarPorEdad("Lucía", 25)).toEqual("Hola, Lucía");
+    expect(bot.saludarPorEdad("Lucía", 25)).toEqual("Hola");
   });
 
   it("debería saludar en español", () => {

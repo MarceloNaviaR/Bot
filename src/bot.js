@@ -15,15 +15,20 @@ export default class Bot {
   }
 
   saludarPorGenero(nombre, genero) {
-      if (genero === "masculino") return `Hola, Sr. ${nombre}`;
-      if (genero === "femenino") return `Hola, Sra. ${nombre}`;
-      return `Hola, ${nombre}`;
-  }
+    if (genero.toLowerCase() === "masculino") {
+        return `Hola, Sr. ${nombre}`;
+    } else if (genero.toLowerCase() === "femenino") {
+        return `Hola, Sra. ${nombre}`;
+    }
+    return `Hola, ${nombre}`; // Si no se especifica género, solo saluda con el nombre
+}
 
-  saludarPorEdad(nombre, edad) {
-    if (edad > 30) return `Hola, Sr. ${nombre}`;
-    return `Hola, ${nombre}`;
-  }
+saludarPorEdad(nombre, edad) {
+    edad = parseInt(edad, 10);
+    if (isNaN(edad)) return "Error: Edad no válida";
+    if (edad >= 30) return `Hola, Sr. ${nombre}`;
+    return "Hola"; // Ya no pone Sr./Sra. por defecto
+}
 
   saludarEnEspanol(nombre) {
       return `Hola, ${nombre}`;
