@@ -1,7 +1,21 @@
 export default class Bot {
-  saludar() {
-      return "Hola";
-  }
+  saludar(nombre = "", edad = 0, genero = "") {
+    edad = parseInt(edad, 10);
+    if (isNaN(edad)) edad = 0; // Evita error con valores no numéricos
+
+    let titulo = "";
+    if (edad >= 30) {
+        if (genero.toLowerCase() === "masculino") {
+            titulo = "Sr.";
+        } else if (genero.toLowerCase() === "femenino") {
+            titulo = "Sra.";
+        }
+    }
+
+    if (!nombre) return "Hola"; // Si no hay nombre, solo dice "Hola"
+    
+    return `Hola, ${titulo} ${nombre}`.trim();
+}
 
   saludarPorNombre(nombre) {
       return `Hola, ${nombre}`;
