@@ -21,8 +21,8 @@ export default class Bot {
   }
 
   saludarPorEdad(nombre, edad) {
-      if (edad > 30) return `Hola, ${edad >= 50 ? "Don" : "Sr./Sra."} ${nombre}`;
-      return `Hola, ${nombre}`;
+    if (edad > 30) return `Hola, Sr. ${nombre}`;
+    return `Hola, ${nombre}`;
   }
 
   saludarEnEspanol(nombre) {
