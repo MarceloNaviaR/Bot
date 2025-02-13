@@ -1,15 +1,24 @@
-import sumar from "./sumador";
+import Bot from "./bot.js";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
-const div = document.querySelector("#resultado-div");
+const bot = new Bot();
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+document.getElementById("saludar").addEventListener("click", () => {
+    const nombre = document.getElementById("nombre").value || "Usuario";
+    const genero = document.getElementById("genero").value;
+    const edad = parseInt(document.getElementById("edad").value) || 0;
+    document.getElementById("resultado").textContent = bot.saludarPorGenero(nombre, genero) + " " + bot.saludarPorEdad(nombre, edad);
+});
 
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
+document.getElementById("saludarHora").addEventListener("click", () => {
+    document.getElementById("resultado").textContent = bot.saludarPorHora();
+});
 
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+document.getElementById("saludarEspanol").addEventListener("click", () => {
+    const nombre = document.getElementById("nombre").value || "Usuario";
+    document.getElementById("resultado").textContent = bot.saludarEnEspanol(nombre);
+});
+
+document.getElementById("saludarIngles").addEventListener("click", () => {
+    const nombre = document.getElementById("nombre").value || "User";
+    document.getElementById("resultado").textContent = bot.saludarEnIngles(nombre);
 });
